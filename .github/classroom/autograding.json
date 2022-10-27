@@ -1,0 +1,104 @@
+{
+  "tests": [
+    {
+      "name": "Question1",
+      "setup": "",
+      "run": "mvn -Dtest=CreateMessageAuthTests test",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Question2",
+      "setup": "",
+      "run": "mvn -Dtest=CreateUserTests test",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Question3",
+      "setup": "",
+      "run": "mvn -Dtest=GetConversationAuthTests test",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Question4",
+      "setup": "",
+      "run": "mvn -Dtest=GetConversationsAuthTests test",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Question5",
+      "setup": "",
+      "run": "mvn -Dtest=GetConversationsNoAuthTests test",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Question6",
+      "setup": "",
+      "run": "mvn -Dtest=LoginHandlerTests test",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Question7",
+      "setup": "",
+      "run": "mvn -Dtest=UsernameTakenTest test",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Question8",
+      "setup": "",
+      "run": "mvn -Dtest=DaoTests test",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Question9",
+      "setup": "",
+      "run": "mvn -Dtest=DtoTests test",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Question10",
+      "setup": "",
+      "run": "mvn -Dtest=RoutingTests test",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    }
+  ]
+}
