@@ -28,11 +28,16 @@ public class ConversationDto extends BaseDto{
   @Override
   public Document toDocument() {
     // TODO
-    return null;
+    return new Document()
+            .append("conversationId", this.conversationId)
+            .append("userName", this.userName);
   }
 
   public static ConversationDto fromDocument(Document document) {
     // TODO
-    return null;
+    ConversationDto conversationDto = new ConversationDto();
+    conversationDto.setConversationId(document.getString("conversationId"));
+    conversationDto.setUserName(document.getString("userName"));
+    return conversationDto;
   }
 }

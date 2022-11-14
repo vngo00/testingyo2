@@ -2,6 +2,8 @@ package dto;
 
 import org.bson.Document;
 
+import javax.print.Doc;
+
 public class UserDto extends BaseDto{
 
   private String userName;
@@ -33,11 +35,17 @@ public class UserDto extends BaseDto{
 
   public Document toDocument(){
     // TODO
-    return null;
+
+    return new Document()
+            .append("userName", this.userName)
+            .append("password", this.password);
   }
 
   public static UserDto fromDocument(Document match) {
     // TODO
-    return null;
+    UserDto userDto = new UserDto();
+    userDto.setUserName(match.getString("userName"));
+    userDto.setPassword(match.getString("password"));
+    return userDto;
   }
 }

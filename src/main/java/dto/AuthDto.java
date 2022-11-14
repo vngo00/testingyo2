@@ -2,6 +2,8 @@ package dto;
 
 import org.bson.Document;
 
+import java.util.Map;
+
 public class AuthDto extends BaseDto{
 
   private String userName;
@@ -35,11 +37,19 @@ public class AuthDto extends BaseDto{
   @Override
   public Document toDocument() {
     // TODO
-    return null;
+    return new Document()
+            .append("userName", this.userName)
+            .append("expireTime", this.expireTime)
+            .append("hash", this.hash);
+
   }
 
   public static AuthDto fromDocument(Document document){
     // TODO
-    return null;
+    AuthDto auth = new AuthDto();
+    auth.setExpireTime(document.getLong("expireTime"));
+    auth.setUserName(document.getString("userName"));
+    auth.setHash(document.getString("hash"));
+    return auth;
   }
 }

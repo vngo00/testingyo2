@@ -1,5 +1,7 @@
 package response;
 
+import handler.GsonTool;
+
 import java.util.Map;
 
 public class CustomHttpResponse {
@@ -18,6 +20,17 @@ public class CustomHttpResponse {
 
   public String toString(){
     // todo
-    return null;
+    StringBuilder stringBuilder = new StringBuilder();
+    stringBuilder.append(this.version + " " + this.status + "\n");
+    for(Map.Entry<String,String> header : this.headers.entrySet()){
+      stringBuilder.append(header.getKey() + ": " + header.getValue() + "\n" );
+    }
+    stringBuilder.append("\n");
+    if(body != null) {
+      //stringBuilder.append(GsonTool.gson.toJson(body, RestApiAppResponse.class));
+      stringBuilder.append(body);
+    }
+
+    return stringBuilder.toString();
   }
 }

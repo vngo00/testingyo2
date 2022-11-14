@@ -1,11 +1,13 @@
 package dao;
 
+import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import dto.AuthDto;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.bson.Document;
+import org.bson.conversions.Bson;
 
 public class AuthDao extends BaseDao<AuthDto> {
 
@@ -31,11 +33,15 @@ public class AuthDao extends BaseDao<AuthDto> {
   @Override
   public void put(AuthDto authDto) {
     // TODO
+    collection.insertOne(authDto.toDocument());
   }
 
   @Override
   public List<AuthDto> query(Document filter) {
     // TODO
-    return null;
+    FindIterable<Document> foundDoc = collection.find((Bson) filter);
+    List<Document> list = foundDoc.into(new ArrayList<>());
+    List<AuthDto> result = list.stream().map(AuthDto::fromDocument).collect(Collectors.toList());
+    return result;
   }
 }

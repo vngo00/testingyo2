@@ -58,11 +58,23 @@ public class MessageDto extends BaseDto{
 
   public Document toDocument(){
     // TODO
-    return null;
+
+    return new Document()
+            .append("message", this.message)
+            .append("fromId", this.fromId)
+            .append("toId", this.toId)
+            .append("conversationId", this.conversationId)
+            .append("timestamp", this.timestamp);
   }
 
   public static MessageDto fromDocument(Document document) {
     // TODO
-    return null;
+    MessageDto message = new MessageDto();
+    message.setMessage(document.getString("message"));
+    message.setFromId(document.getString("fromId"));
+    message.setToId(document.getString("toId"));
+    message.timestamp = document.getLong("timestamp");
+    message.conversationId = document.getString("conversationId");
+    return message;
   }
 }

@@ -42,6 +42,7 @@ public class Server {
         // HTTP Response
         if(!input.isEmpty()){
           writer.println(processRequest(input));
+
         }else{
           writer.println("HTTP/1.1 200 OK");
           writer.println("Server: TEST");
@@ -67,7 +68,10 @@ public class Server {
       var builder = handler.handleRequest(request);
       builder.setHeader("Content-type", "application/json");
       var httpRes = builder.build();
+      System.out.println("here is what the response look like:\n");
+      System.out.println(httpRes.toString());
       return httpRes.toString();
+
     }catch (Exception e){
       return new HttpResponseBuilder()
           .setStatus(StatusCodes.SERVER_ERROR)

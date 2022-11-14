@@ -1,11 +1,15 @@
 package dao;
 
+import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import dto.ConversationDto;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.bson.Document;
+import org.bson.conversions.Bson;
+
+import javax.print.Doc;
 
 public class ConversationDao extends BaseDao<ConversationDto> {
 
@@ -31,11 +35,18 @@ public class ConversationDao extends BaseDao<ConversationDto> {
   @Override
   public void put(ConversationDto conversationDto) {
     // TODO
+    collection.insertOne(conversationDto.toDocument());
   }
 
   @Override
   public List<ConversationDto> query(Document filter) {
     // TODO
-    return null;
+
+    FindIterable<Document> foundDoc = collection.find((Bson) filter);
+    List<Document> list = foundDoc.into(new ArrayList<>());
+    List<ConversationDto> result = list.stream().map(ConversationDto::fromDocument).collect(Collectors.toList());
+
+    return result;
+
   }
 }
